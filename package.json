@@ -12,9 +12,12 @@
     "async": "^2.6.2",
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
+    "filenamify": "^3.0.0",
+    "fuse.js": "^3.4.4",
     "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
     "pdfreader": "^1.0.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "request-progress": "^3.0.0"
   }
 }
