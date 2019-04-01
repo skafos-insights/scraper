@@ -140,6 +140,7 @@ function cutClip(meeting, agendaItems, agendaItem, x, cb){
 		if (error) {
 			console.error(`exec error: ${error}`);
 			cb(`exec error: ${error}`, agendaItem);
+			fs.unlink(VIDEO_DIRECTORY+path, function(){console.log('video deleted', VIDEO_DIRECTORY+path, arguments)})
 			return;
 		}
 		console.log(`stdout: ${stdout}`);
@@ -348,7 +349,7 @@ function getGranicusView(){
 					  media_player: "https://charlottesville.granicus.com/MediaPlayer.php?view_id=2&clip_id="+clip_id,
 					  agenda_viewer: ($(tr).find('td.listItem:nth-child(4) a').length ? "https://charlottesville.granicus.com/GeneratedAgendaViewer.php?view_id=2&clip_id="+clip_id : undefined),
 					  // agenda_viewer: $(tr).find('td.listItem:nth-child(4) a').attr('href'),
-					  duration: duration,
+					  duration: duration.replace(' ',' '),
 					  duration_minutes: parseInt(/(\d\d)h (\d\d)m/i.exec(duration)[1])*60+/(\d\d)h (\d\d)m/i.exec(duration)[2],
 					  video: $(tr).find('td.listItem:last-child a').attr('href')
 				  };
